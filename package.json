@@ -1,0 +1,23 @@
+{
+  "name": "ws-server",
+  "version": "1.0.0",
+  "description": "Simple web socket server on Node",
+  "main": "server.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garys-primary/node-ws-server.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/garys-primary/node-ws-server/issues"
+  },
+  "homepage": "https://github.com/garys-primary/node-ws-server#readme",
+  "dependencies": {
+    "ws": "^8.12.0"
+  }
+}
