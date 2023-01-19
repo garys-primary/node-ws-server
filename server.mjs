@@ -7,6 +7,17 @@ const port = 8091;
 
 const wss = new WebSocketServer({ port: 8080 });
 
+var cmdSender;
+
+var commands = [
+  'dr_fwd_10',
+  'dr_rgt_3',
+  'dr_lft_8',
+  'dr_fwd_5',
+  'dr_rev_5',
+  'dr_rgt_15'
+]
+
 wss.on('connection', function connection(ws, request) {
   console.log(new Date() + ' | A new client is connected.');
 
@@ -28,9 +39,15 @@ server.listen(port, function() {
 })
 
 var sendCommands = (ws) => {
-  ws.send("cmd 1")
-  ws.send("cmd 2")
-  ws.send("cmd 3")
-  ws.send("cmd 4")
-  ws.send("cmd 5")
+  let index = 0;
+  let nCmds = commands.length - 1;
+
+  cmdSender = setInterval(() => {
+    if(index >= nCmds)
+      index = 0;
+    else
+      index++;
+    
+    ws.send(commands[index]);
+  }, 500)
 }
