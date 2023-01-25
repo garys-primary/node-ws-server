@@ -15,7 +15,10 @@ var commands = [
   'dr_lft_8',
   'dr_fwd_5',
   'dr_rev_5',
-  'dr_rgt_15'
+  'dr_rgt_15',
+  'dr_lft_15',
+  'dr_rgt_25',
+  'dr_up_5'
 ]
 
 wss.on('connection', function connection(ws, request) {
