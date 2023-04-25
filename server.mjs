@@ -1,11 +1,11 @@
 import http from 'http';
-import url from 'url';
-import WebSocket, { WebSocketServer } from 'ws';
+import { WebSocketServer } from 'ws';
 
 const server = http.createServer();
-const port = 8091;
+const listenPort = 8091;
+const serverPort = 8080;
 
-const wss = new WebSocketServer({ port: 8080 });
+const wss = new WebSocketServer({ port: serverPort });
 
 var cmdSender;
 
@@ -37,8 +37,8 @@ wss.on('connection', function connection(ws, request) {
   });
 });
 
-server.listen(port, function() {
-  console.log(new Date() + ' | Server is listening on port ' + port);
+server.listen(listenPort, function() {
+  console.log(new Date() + ' | Server is listening on port ' + listenPort);
 })
 
 var sendCommands = (ws) => {
